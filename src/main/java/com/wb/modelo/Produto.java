@@ -1,5 +1,6 @@
 package com.wb.modelo;
 
+
 public class Produto {
 	public Produto(String nome, double preco) {
 		this.nome = nome;
@@ -21,4 +22,5 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
 }

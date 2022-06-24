@@ -2,17 +2,13 @@ package com.wb;
 
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
-import com.wb.negocio.DeletarCliente;
-import com.wb.negocio.Delete;
-import com.wb.negocio.Editar;
-import com.wb.negocio.EditarCliente;
-import com.wb.negocio.ListagemDez;
-import com.wb.negocio.ListagemDezClientes;
 
-import cadastros.Cadastro;
-import cadastros.CadastroCliente;
-import listagem.Listagem;
-import listagem.ListarTodosClientes;
+import com.wb.negocio.Cadastros;
+import com.wb.negocio.DeletarCadastros;
+import com.wb.negocio.EditarCadastros;
+import com.wb.negocio.Execucao;
+import com.wb.negocio.Listas;
+import com.wb.negocio.ProdutosServicos;
 
 
 public class App {
@@ -20,6 +16,8 @@ public class App {
 		System.out.println("Bem-vindo ao cadastro de clientes do Grupo World Beauty");
 		Empresa empresa = new Empresa();
 		boolean execucao = true;
+		Dados Cadastros = new Dados(empresa.getClientes(), empresa.getProdutos(), empresa.getServicos(), empresa);
+		Cadastros.cadastrar();
 		while (execucao) {
 			System.out.println("Que tipo de operação você deseja fazer:");
 			System.out.println("1 - Cadastros");
@@ -38,25 +36,24 @@ public class App {
 				System.out.println("Até mais!\n");
 				break;
 			case 1:
-				Cadastro cadastro = new CadastroCliente(empresa.getClientes());
-				cadastro.cadastrar();
-				break;
+				Execucao Cadastrar = new Cadastros(empresa);
+				Cadastrar.executar();
+			break;
 			case 2:
-				Delete delecao = new DeletarCliente(empresa.getClientes());
-				delecao.deletar();
-				break;
+				Execucao Editar = new EditarCadastros(empresa);
+				Editar.executar();
+			break;
 			case 3:
-				Editar editar = new EditarCliente(empresa.getClientes());
-				editar.update();
-				break;
+				Execucao Deletar = new DeletarCadastros(empresa);
+				Deletar.executar();
+			break;
 			case 4:
-				Listagem listagem = new ListarTodosClientes(empresa.getClientes());
-				listagem.listar();
-				break;
+				Execucao Listar = new Listas(empresa);
+				Listar.executar();
+			break;
 			case 5:
-				ListagemDez listagemDez = new ListagemDezClientes(empresa.getClientes());
-				listagemDez.listarDez();
-				break;
+				Execucao Carrinho = new ProdutosServicos(empresa);
+				Carrinho.executar();
 			default:
 				System.out.println("Operação não entendida");
 			}

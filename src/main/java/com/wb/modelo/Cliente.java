@@ -3,6 +3,7 @@ package com.wb.modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import com.wb.io.Entrada;
@@ -123,6 +124,23 @@ public class Cliente {
 			cadastrarTel();
 		}
 	}
+	public static Comparator<Cliente> menor = new Comparator<Cliente>() {
+		@Override
+		public int compare (Cliente o1, Cliente o2) {
+			int valor1 = o1.getProdutosConsumidos().size();
+			int valor2 = o2.getProdutosConsumidos().size();
+			return valor1 - valor2;
+		}
+	};
+	
+	public static Comparator<Cliente> maior = new Comparator<Cliente>() {
+		@Override
+		public int compare (Cliente o1, Cliente o2) {
+			int valor1 = o1.getProdutosConsumidos().size();
+			int valor2 = o2.getProdutosConsumidos().size();
+			return valor1 + valor2;
+		}
+	};
 	
 	
 }
