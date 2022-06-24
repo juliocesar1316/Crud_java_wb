@@ -37,7 +37,7 @@ public class Dados extends Cadastro{
 		while (masc < 17) {
 			String nome = "Cliente " + (masc+1);
 			String nomeSocial = "Cliente " + (masc+1);
-			String genero = "Masculino";
+			String genero = "f";
 			String valorCPF = "000000" + (masc+1);
 			String dataCPF = "01/01/2000";
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -88,7 +88,7 @@ public class Dados extends Cadastro{
 		while (fem < 30) {
 			String nome = "Cliente " + (fem+1);
 			String nomeSocial = "Cliente " + (fem+1);
-			String genero = "Feminino";
+			String genero = "m";
 			String valorCPF = "000000" + (fem+1);
 			String dataCPF = "01/01/2000";
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");

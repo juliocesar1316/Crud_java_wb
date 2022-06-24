@@ -34,8 +34,10 @@ public class ListarClienteMaisConsumo extends Listagem {
 				System.out.println("CPF: " + cliente.getCpf().getValor());
 				for(RG rg: cliente.getRgs()) {
 					System.out.println("RG: " + rg.getValor());
-				}		
+				}	
+					
 				System.out.println("Quantidade Produto: " + cliente.getProdutosConsumidos().size());
+				System.out.println("\n");
 				cont+=1;
 			}
 		}

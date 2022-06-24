@@ -25,14 +25,14 @@ public class Listas extends Execucao {
 		
 		while ( op ) {
 			System.out.println("\nQue tipo de listagem você deseja realizar:");
-			System.out.println("1 - Listar todos os clientes");
-			System.out.println("2 - Listar os 10 clientes que mais consumiram produtos/serviços em quantidade");
-			System.out.println("3 - Listar todos os clientes por gênero");
+			System.out.println("1 - Todos os clientes");
+			System.out.println("2 - Os 10 clientes que mais consumiram produtos/serviços em quantidade");
+			System.out.println("3 - Todos os clientes por gênero");
+			System.out.println("4 - Todos os produtos/servico mais consumidos");
 			
-			System.out.println("4 - Listar todos os produtos/servico mais consumidos");
-			System.out.println("5 - Listar todos os produtos/servico mais Consumidos por genero");
-			System.out.println("6 - Listar os 10 clientes que menos consumiram produtos/servicos");
-			System.out.println("7 - Listar os 5 clientes mais consumiram produtos/servico por valor");
+			System.out.println("5 - Todos os produtos/servico mais Consumidos por genero");
+			System.out.println("6 - Os 10 clientes que menos consumiram produtos/servicos");
+			System.out.println("7 - Os 5 clientes mais consumiram produtos/servico por valor");
 			
 			System.out.println("7 - Listar os 5 clientes mais consumiram produtos/servico por valor");
 			System.out.println("8 - Listar os 5 clientes mais consumiram produtos/servico por valor");
@@ -65,6 +65,8 @@ public class Listas extends Execucao {
 				listagemMaiorConsumo.listar();
 				break;
 			case 5:
+				Listagem listagemConsumoGenero = new ListarProdutoGenero(empresa.getClientes());
+				listagemConsumoGenero.listar();
 				break;
 			case 6:
 				break;

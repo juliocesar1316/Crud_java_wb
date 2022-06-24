@@ -8,9 +8,6 @@ import com.wb.modelo.Empresa;
 
 import listagem.Listagem;
 import listagem.ListarTodosClientes;
-import listagem.ListarTodosProdutosConsumo;
-import listagem.ListarTodosServicos;
-
 public class EditarCadastros extends Execucao{
 	private Empresa empresa;
 	
@@ -137,8 +134,6 @@ public class EditarCadastros extends Execucao{
 				
 			
 			case 2:
-				Listagem listagemProd = new ListarTodosProdutosConsumo(empresa.getProdutos());
-				listagemProd.listar();
 				
 				int numProd = 0;
 				while (true) {
@@ -161,9 +156,6 @@ public class EditarCadastros extends Execucao{
 					break;
 				
 			case 3:
-				Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
-				listagemServ.listar();
-				
 				int numServ = 0;
 				while (true) {
 					System.out.println("Digite o número do serviço que você deseja editar:");

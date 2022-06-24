@@ -138,7 +138,7 @@ public class Cliente {
 		public int compare (Cliente o1, Cliente o2) {
 			int valor1 = o1.getProdutosConsumidos().size();
 			int valor2 = o2.getProdutosConsumidos().size();
-			return valor1 + valor2;
+			return valor2 - valor1  ;
 		}
 	};
 	

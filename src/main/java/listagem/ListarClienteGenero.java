@@ -24,9 +24,10 @@ public class ListarClienteGenero extends Listagem {
 		System.out.println((clienteGenero.equals("m")) ?  "Listagem de clientes Masculinos\n" : "Listagem de clientes Femininos\n");
 		
 		for (Cliente cliente : clientes) {
-			if (cliente.getGenero().equals(clienteGenero)){
+			if (cliente.getGenero().equals("f")){
 				System.out.println("Nome: " + cliente.nome);
 				System.out.println("Nome social: " + cliente.nomeSocial);
+				System.out.println("Gênero: Feminino");
 				for(Telefone telefone: cliente.getTelefones()) {
 					System.out.println("Telefone: (" + telefone.getDdd() + ") " + telefone.getNumero());
 				}
@@ -36,7 +37,23 @@ public class ListarClienteGenero extends Listagem {
 				}
 				System.out.println("--------------------------------------");
 			}
-			System.out.println("Erro");
+			else if(cliente.getGenero().equals("m")) {
+					System.out.println("Nome: " + cliente.nome);
+					System.out.println("Nome social: " + cliente.nomeSocial);
+					System.out.println("Gênero: Masculino");
+					for(Telefone telefone: cliente.getTelefones()) {
+						System.out.println("Telefone: (" + telefone.getDdd() + ") " + telefone.getNumero());
+					}
+					System.out.println("CPF: " + cliente.getCpf().getValor());
+					for(RG rg: cliente.getRgs()) {
+						System.out.println("RG: " + rg.getValor());
+					}
+					System.out.println("--------------------------------------");
+			}
+			else {
+				System.out.println("Erro");
+				break;
+			}
 		}
 	}
 }

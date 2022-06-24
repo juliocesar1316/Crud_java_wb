@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.wb.modelo.Cliente;
+import com.wb.modelo.Produto;
 
 
 public class ListarTodosProdutosConsumo extends Listagem {
@@ -20,9 +21,14 @@ public class ListarTodosProdutosConsumo extends Listagem {
 		
 		Collections.sort(clientes, Cliente.maior);
 		for(Cliente cliente: clientes) {
-			System.out.println("Produto" + cliente.getProdutosConsumidos() );
-			System.out.println("Quantidade Produto: " + cliente.getProdutosConsumidos().size());
-			
+			int cont = 0;
+			for(Produto produtosConsumidos: cliente.getProdutosConsumidos()) {
+				System.out.println("Produto: " + produtosConsumidos.nome);
+				System.out.println("Preço: " + produtosConsumidos.preco);
+				cont+=1;
+			}
+			System.out.println("Quantidade: " + cont);
+			System.out.println("\n");
 		}
 	}
 }
