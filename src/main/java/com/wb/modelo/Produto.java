@@ -1,5 +1,6 @@
 package com.wb.modelo;
 
+import java.util.List;
 
 public class Produto {
 	public Produto(String nome, double preco) {
@@ -21,6 +22,26 @@ public class Produto {
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	
+	public int somaDosProdutos(List<Cliente> c) {
+		int cont = 0;
+		for (Cliente cliente : c) {
+			for (Produto p : cliente.getProdutosConsumidos()) {
+				if(p.nome == getNome()) {
+					cont = cont + 1;
+				}
+			}
+		}
+		setQuantidade(cont);
+		return cont;
 	}
 	
 }

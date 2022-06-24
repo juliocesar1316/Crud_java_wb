@@ -124,7 +124,7 @@ public class Cliente {
 			cadastrarTel();
 		}
 	}
-	public static Comparator<Cliente> menor = new Comparator<Cliente>() {
+	public static Comparator<Cliente> menorProduto = new Comparator<Cliente>() {
 		@Override
 		public int compare (Cliente o1, Cliente o2) {
 			int valor1 = o1.getProdutosConsumidos().size();
@@ -133,7 +133,7 @@ public class Cliente {
 		}
 	};
 	
-	public static Comparator<Cliente> maior = new Comparator<Cliente>() {
+	public static Comparator<Cliente> maiorProduto = new Comparator<Cliente>() {
 		@Override
 		public int compare (Cliente o1, Cliente o2) {
 			int valor1 = o1.getProdutosConsumidos().size();
@@ -141,6 +141,36 @@ public class Cliente {
 			return valor2 - valor1  ;
 		}
 	};
+	public static Comparator<Cliente> menorServico = new Comparator<Cliente>() {
+		@Override
+		public int compare (Cliente o1, Cliente o2) {
+			int valor1 = o1.getServicosConsumidos().size();
+			int valor2 = o2.getServicosConsumidos().size();
+			return valor1 - valor2;
+		}
+	};
 	
+	public static Comparator<Cliente> maiorServico = new Comparator<Cliente>() {
+		@Override
+		public int compare (Cliente o1, Cliente o2) {
+			int valor1 = o1.getServicosConsumidos().size();
+			int valor2 = o2.getServicosConsumidos().size();
+			return valor2 - valor1  ;
+		}
+	};
 	
+	public double valorConsumoProduto() {
+		double total = 0;
+		for (Produto prodserv : produtosConsumidos) {
+			total = total + prodserv.preco;
+		}
+		return total;
+	}
+	public double valorConsumoServico() {
+		double total = 0;
+		for (Servico prodserv : servicosConsumidos) {
+			total = total + prodserv.preco;
+		}
+		return total;
+	}
 }

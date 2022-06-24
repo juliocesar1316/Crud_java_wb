@@ -3,8 +3,10 @@ package com.wb.negocio;
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 
+import listagem.ListaTodosProdutos;
 import listagem.Listagem;
 import listagem.ListarTodosClientes;
+import listagem.ListarTodosServicos;
 
 public class DeletarCadastros extends Execucao{
 	private Empresa empresa;
@@ -47,7 +49,10 @@ public class DeletarCadastros extends Execucao{
 				System.out.println("Cliente excluído com sucesso!");
 				break;
 			
-			case 2:		
+			case 2:	
+				Listagem listagemProduto = new ListaTodosProdutos(empresa.getProdutos());
+				listagemProduto.listar();	
+				
 				int numProd = 0;
 				while (true) {
 					System.out.println("Digite o número do produto que você deseja deletar:");
@@ -62,6 +67,9 @@ public class DeletarCadastros extends Execucao{
 				break;
 				
 			case 3:
+				Listagem listagemServico = new ListarTodosServicos(empresa.getServicos());
+				listagemServico.listar();
+				
 				int numServ = 0;
 				while (true) {
 					System.out.println("Digite o número do serviço que você deseja deletar:");

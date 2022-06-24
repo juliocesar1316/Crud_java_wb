@@ -6,10 +6,11 @@ import com.wb.modelo.Empresa;
 import listagem.Listagem;
 import listagem.ListarClienteGenero;
 import listagem.ListarClienteMaisConsumo;
-import listagem.ListarProdutoGenero;
+import listagem.ListarClienteMaisValor;
+import listagem.ListarClienteMenosConsumo;
+import listagem.ListarProdServGenero;
 import listagem.ListarTodosClientes;
-import listagem.ListarTodosProdutosConsumo;
-import listagem.ListarTodosServicos;
+import listagem.ListarTodosProServConsumo;
 
 public class Listas extends Execucao {
 	private Empresa empresa;
@@ -29,13 +30,9 @@ public class Listas extends Execucao {
 			System.out.println("2 - Os 10 clientes que mais consumiram produtos/serviços em quantidade");
 			System.out.println("3 - Todos os clientes por gênero");
 			System.out.println("4 - Todos os produtos/servico mais consumidos");
-			
 			System.out.println("5 - Todos os produtos/servico mais Consumidos por genero");
 			System.out.println("6 - Os 10 clientes que menos consumiram produtos/servicos");
 			System.out.println("7 - Os 5 clientes mais consumiram produtos/servico por valor");
-			
-			System.out.println("7 - Listar os 5 clientes mais consumiram produtos/servico por valor");
-			System.out.println("8 - Listar os 5 clientes mais consumiram produtos/servico por valor");
 			System.out.println("0 - Voltar");
 		
 			Entrada entradaList = new Entrada();
@@ -61,21 +58,20 @@ public class Listas extends Execucao {
 				listagemClienteGen.listar();
 				break;
 			case 4:
-				Listagem listagemMaiorConsumo = new ListarTodosProdutosConsumo(empresa.getClientes());
+				Listagem listagemMaiorConsumo = new ListarTodosProServConsumo(empresa.getClientes(), empresa.getProdutos(), empresa.getServicos());
 				listagemMaiorConsumo.listar();
 				break;
 			case 5:
-				Listagem listagemConsumoGenero = new ListarProdutoGenero(empresa.getClientes());
+				Listagem listagemConsumoGenero = new ListarProdServGenero(empresa.getClientes(), empresa.getProdutos(), empresa.getServicos());
 				listagemConsumoGenero.listar();
 				break;
 			case 6:
+				Listagem listagemMenorConsumo = new ListarClienteMenosConsumo(empresa.getClientes());
+				listagemMenorConsumo.listar();
 				break;
 			case 7:
-				
-				break;
-			case 8:
-				Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
-				listagemServ.listar();
+				Listagem listagemMaiorValor = new ListarClienteMaisValor(empresa.getClientes());
+				listagemMaiorValor.listar();
 				break;
 			default:
 				System.out.println("\nOperação não entendida");

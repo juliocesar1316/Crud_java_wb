@@ -5,7 +5,6 @@ import com.wb.modelo.Empresa;
 
 import listagem.Listagem;
 import listagem.ListarTodosClientes;
-import listagem.ListarTodosProdutosConsumo;
 import listagem.ListarTodosServicos;
 
 public class ProdutosServicos extends Execucao {
@@ -39,8 +38,6 @@ public class ProdutosServicos extends Execucao {
 			case 1:
 				String parar = "sim";
 				while (parar.equals("sim")) {
-					Listagem listagemProduto = new ListarTodosProdutosConsumo(empresa.getProdutos());
-					listagemProduto.listar();
 					int numProd = 0;
 					while (true) {
 						System.out.println("Digite o número do produto que você deseja adicionar:");

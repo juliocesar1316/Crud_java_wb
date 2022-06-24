@@ -17,27 +17,17 @@ public class ListarClienteGenero extends Listagem {
 	
 	@Override
 	public void listar() {		
+		System.out.println("\nLista de todos os clientes por gênero. \n");
 		System.out.println("\nQual gênero voce deseja listar (m ou f):");
 		Entrada entrada = new Entrada();
 		String clienteGenero = entrada.receberTexto();
 		
-		System.out.println((clienteGenero.equals("m")) ?  "Listagem de clientes Masculinos\n" : "Listagem de clientes Femininos\n");
+		switch(clienteGenero) {
 		
-		for (Cliente cliente : clientes) {
-			if (cliente.getGenero().equals("f")){
-				System.out.println("Nome: " + cliente.nome);
-				System.out.println("Nome social: " + cliente.nomeSocial);
-				System.out.println("Gênero: Feminino");
-				for(Telefone telefone: cliente.getTelefones()) {
-					System.out.println("Telefone: (" + telefone.getDdd() + ") " + telefone.getNumero());
-				}
-				System.out.println("CPF: " + cliente.getCpf().getValor());
-				for(RG rg: cliente.getRgs()) {
-					System.out.println("RG: " + rg.getValor());
-				}
-				System.out.println("--------------------------------------");
-			}
-			else if(cliente.getGenero().equals("m")) {
+		case "m":
+			System.out.println("Listagem de clientes Masculinos\n");
+			for (Cliente cliente : clientes) {
+				if(cliente.getGenero().equals("m")) {
 					System.out.println("Nome: " + cliente.nome);
 					System.out.println("Nome social: " + cliente.nomeSocial);
 					System.out.println("Gênero: Masculino");
@@ -49,11 +39,28 @@ public class ListarClienteGenero extends Listagem {
 						System.out.println("RG: " + rg.getValor());
 					}
 					System.out.println("--------------------------------------");
+				}
 			}
-			else {
-				System.out.println("Erro");
-				break;
+		break;
+		
+		case "f":
+			System.out.println("Listagem de clientes Feminino\n");
+			for (Cliente cliente : clientes) {
+				if(cliente.getGenero().equals("f")) {
+					System.out.println("Nome: " + cliente.nome);
+					System.out.println("Nome social: " + cliente.nomeSocial);
+					System.out.println("Gênero: Feminino");
+					for(Telefone telefone: cliente.getTelefones()) {
+						System.out.println("Telefone: (" + telefone.getDdd() + ") " + telefone.getNumero());
+					}
+					System.out.println("CPF: " + cliente.getCpf().getValor());
+					for(RG rg: cliente.getRgs()) {
+						System.out.println("RG: " + rg.getValor());
+					}
+					System.out.println("--------------------------------------");
+				}
 			}
+		break;
 		}
 	}
 }

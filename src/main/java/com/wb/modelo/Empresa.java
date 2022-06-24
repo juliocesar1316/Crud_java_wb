@@ -21,4 +21,13 @@ public class Empresa {
 	public List<Servico> getServicos() {
 		return servicos;
 	}
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	public void setProduto(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+	public void setServico(List<Servico> servicos) {
+		this.servicos = servicos;
+	}
 }

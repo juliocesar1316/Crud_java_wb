@@ -6,8 +6,10 @@ import java.time.format.DateTimeFormatter;
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 
+import listagem.ListaTodosProdutos;
 import listagem.Listagem;
 import listagem.ListarTodosClientes;
+import listagem.ListarTodosServicos;
 public class EditarCadastros extends Execucao{
 	private Empresa empresa;
 	
@@ -45,7 +47,6 @@ public class EditarCadastros extends Execucao{
 						break;
 					}
 				}
-					System.out.println("Número de cliente inválido! Verifique se o número inserido está correto.");
 				
 				System.out.println("\nQual informação você deseja editar");
 				System.out.println("1 - Nome");
@@ -134,6 +135,8 @@ public class EditarCadastros extends Execucao{
 				
 			
 			case 2:
+				Listagem listagemProduto = new ListaTodosProdutos(empresa.getProdutos());
+				listagemProduto.listar();	
 				
 				int numProd = 0;
 				while (true) {
@@ -156,6 +159,9 @@ public class EditarCadastros extends Execucao{
 					break;
 				
 			case 3:
+				Listagem listagemServico = new ListarTodosServicos(empresa.getServicos());
+				listagemServico.listar();
+				
 				int numServ = 0;
 				while (true) {
 					System.out.println("Digite o número do serviço que você deseja editar:");
